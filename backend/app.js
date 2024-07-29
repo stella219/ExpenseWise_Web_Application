@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userRouter = require('./routes/userRouter');
 const errorHandler = require("./middlewares/errorHandlerMiddleware");
+const categoryRouter = require("./routes/categoryRouter");
+const transactionRouter = require("./routes/transactionRouter");
 const app = express();
 
 //!Connect to mongodb
@@ -18,6 +20,8 @@ app.use(express.json()); //?Pass incoming json data
 
 //!Routes
 app.use('/', userRouter);
+app.use('/', categoryRouter);
+app.use('/', transactionRouter);
 
 //!Error Handler
 app.use(errorHandler);
